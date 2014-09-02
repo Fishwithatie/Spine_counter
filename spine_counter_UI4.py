@@ -16,12 +16,10 @@ def main():
 	a.show()
 	app.exec_()
 	print ("Ok" if a.result() == 1 else "Cancel")
-	if a.result() == 1: # Ok pressed
+	if a.result(): # Ok pressed
 		parsed_args = a.parse_args()
 		parse_files(parsed_args.swc, parsed_args.spine, parsed_args.output)
-	else:
-		args = None
-
+	
 def parse_files(swc_path, spine_path, output):
 	dendrites = []
 	with open(swc_path) as swc_file:
